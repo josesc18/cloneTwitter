@@ -19,5 +19,10 @@ Route::group(['middleware'=>['cors']],function(){
     
     Route::group(['middleware'=>['auth:sanctum']],function(){
         Route::post('/logout',[App\Http\Controllers\Auth\AuthController::class,'logout']);
+
+        Route::get('/tweet',[\App\Http\Controllers\TweetController::class,'getAllTweets']);
+        Route::post('/tweet',[\App\Http\Controllers\TweetController::class,'createTweet']);
+        Route::put('/tweet/{id}',[\App\Http\Controllers\TweetController::class,'updateTweetById']);
+        Route::delete('/tweet/{id}',[\App\Http\Controllers\TweetController::class,'deleteTweetById']);
     });
 });
