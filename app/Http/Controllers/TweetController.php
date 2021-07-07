@@ -19,7 +19,7 @@ class TweetController extends Controller
     public function getAllTweets(){
         $tweets = Auth()->user()->tweets()
                                 ->orderBy('updated_at','desc')
-                                ->paginate(3);
+                                ->paginate(10);
         return response()->json($tweets);
     }
 
