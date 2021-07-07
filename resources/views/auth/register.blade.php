@@ -1,3 +1,6 @@
+@extends('auth.layout')
+
+@section('content')
 <div>
     <div class="max-400 margin-x">
         <div class="icon-logo ">
@@ -29,3 +32,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script src="{{ asset('js/auth/formValidate.js') }}"></script>
+@endsection
