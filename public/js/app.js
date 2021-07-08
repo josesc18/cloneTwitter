@@ -47,7 +47,7 @@ function renderHtml(data) {
                 <img class="profile-img" src="/img/default_profile.png" alt="">
             </div>
             <div class="content-tweet">
-                <span><b>Full Name</b> @username</span>${new Date(tweets[i]['updated_at']).toLocaleDateString()}
+                <b>Full Name</b><span class="gray">@username</span>
                 <br>
                 <p> ${tweets[i]['tweet']} </p> 
             </div>
