@@ -15,13 +15,14 @@
             </div>
             <div class="sidemenu-options">
                 <ul>
-                    <a href="/home"><li class="active"><i class="fas fa-home"></i></li></a>
-                    <a href="/home"><li ><i class="fas fa-hashtag"></i></li></a>
-                    <a href="/home"><li ><i class="far fa-bell"></i></li></a>
-                    <a href="/home"><li ><i class="far fa-envelope"></i></li></a>
-                    <a href="/home"><li ><i class="far fa-bookmark"></i></li></a>
-                    <a href="/home"><li ><i class="far fa-user"></i></li></a>
-                    <a href="/home"><li ><i class="fas fa-sign-out-alt"></i></li></a>
+                    <a href="/home"><li class="active"><i class="fas fa-home"></i> Home</li></a>
+                    <a href="/home"><li ><i class="fab fa-sistrix"></i> Find</li></a>
+                    <a href="/home"><li ><i class="far fa-user"></i> Profile</li></a>
+                    <a href="/home"><li ><i class="far fa-bell"></i> News</li></a>
+                    <a href="/home"><li ><i class="far fa-envelope"></i> Message</li></a>
+                    <a href="/home"><li ><i class="far fa-bookmark"></i> Saved</li></a>
+                    <a href="#" onclick="logout();"><li ><i class="fas fa-sign-out-alt"></i> Logout</li></a>
+
                 </ul>
             </div>
         </div>
@@ -37,14 +38,23 @@
             </nav>
         </div>
         <a href="/twetmobile" class="btn-tweet"><i class="fas fa-feather-alt"></i></a>
-    
+        <div class="form-tweet-home">
+            <form>
+                <div id="createTweet-home" class="container-tweet-input">
+                    <img class="profile-img" src="{{asset('img/default_profile.png')}}" alt="">
+                    <textarea name="" id="tweet-input">What's going on?</textarea>
+                </div>
+                <p id="valuesCounter"></p>
+                <button class="btnForms" id="btnTweetign">Tweeting</button>
+            </form>
+        </div>
         <!--=====================TWEETS======================== -->
         <div class="menu-container">
             <ul class="menu-list-mobile border-top">
                 <li class="active"><i class="fas fa-home"></i></li>
                 <li><i class="fab fa-sistrix"></i></li>
                 <li><i class="far fa-bell"></i></li>
-                <li><i class="far fa-envelope"></i></li>
+                <li onclick="logout();"><i class="fas fa-sign-out-alt"></i></li>
             </ul>
         </div>
         <div id="tweets"> 
@@ -54,30 +64,30 @@
     </div>
     <div class="right">
         <div class="aside-options">
-            <div class="aside-item">
-                <h2>eSponsort</h2>
+            <div class="aside-item bg-gray">
+                <h2><b>eSponsort</b></h2>
             </div>
-            <div class="aside-item">
+            <div class="aside-item bg-gray">
                 <p class="gray">Around the World</p>
                 <p><b>Ceviche</b></p>
                 <p>100,000,000 tweets</p>
             </div>
-            <div class="aside-item">
+            <div class="aside-item bg-gray">
                 <p class="gray">Around the World</p>
                 <p><b>Playas</b></p>
                 <p>10,000,000 tweets</p>
             </div>
-            <div class="aside-item">
+            <div class="aside-item bg-gray">
                 <p class="gray">Around the World</p>
                 <p><b>TheVoice</b></p>
                 <p>100,000,000 tweets</p>
             </div>
-            <div class="aside-item">
+            <div class="aside-item bg-gray">
                 <p class="gray">Around the World</p>
                 <p><b>TheVoice</b></p>
                 <p>100,000,000 tweets</p>
             </div>
-            <div class="aside-item">
+            <div class="aside-item bg-gray">
                 <p class="gray">Around the World</p>
                 <p><b>CineIsCome</b></p>
                 <p>100,000,000 tweets</p>
@@ -90,4 +100,11 @@
 @section('js')
 <script src="{{ asset('js/auth/secure.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/home.js') }}"></script>
+<script type="text/javascript"> 
+    loadNodo("tweets");
+    window.addEventListener('load',onLoad())
+    validateInput("tweet-input","btnTweetign");
+
+</script>
 @endsection
