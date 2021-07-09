@@ -1,13 +1,28 @@
-let currentPage= 1;
+let currentPage= 0;
 let lastPage=0;
 const tokenBearer = localStorage.getItem('access_token');
 const user = localStorage.getItem('access_token');
 
-const nodoTweets = document.getElementById('tweets')
+const nodo = '';
 
-window.addEventListener('load',getTweets())
+window.addEventListener("scroll",function(){
+    if(window.scrollY + window.innerHeight >=document.documentElement.scrollHeight){
+        if(lastPage != currentPage){
+            infiniteScroll()
+        }
+    }
+});
 
-function onLoad (){
+function loadNodo(id){
+    this.nodo =  document.getElementById(id)
+}
+
+function infiniteScroll(){
+    let endpoint = "http://127.0.0.1:8000/api/tweet?page"+currentPage
+    getTweets(endpoint)
+}
+
+function onLoad(){
     fetch('http://127.0.0.1:8000/api/tweet',{
         method: 'get',
         headers: {
@@ -16,12 +31,12 @@ function onLoad (){
         }
     })
     .then(response => response.json())
-    .then(data => getData(data));
+    .then(data => loadData(data));
 }
 
-function getTweets(){
+function getTweets(endpoint){
     currentPage+= 1;
-    let tweetEndpoint  ="http://127.0.0.1:8000/api/tweet?page="+currentPage;
+    let tweetEndpoint  =endpoint+currentPage;
     fetch(tweetEndpoint,{
         method: 'get',
         headers: {
@@ -30,10 +45,10 @@ function getTweets(){
         }
     })
     .then(response => response.json())
-    .then(data => getData(data));
+    .then(data => loadData(data));
 }
 
-function getData(data){
+function loadData(data){
     lastPage = data["last_page"]
     renderHtml(data)
 }
@@ -53,7 +68,7 @@ function renderHtml(data) {
             </div>
         </div>
                 `
-        nodoTweets.innerHTML +=htlm;
+        this.nodo.innerHTML +=htlm;
     }
 
  }
