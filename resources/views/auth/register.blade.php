@@ -11,19 +11,19 @@
             <form id="registerForm" >
                 <div id="name" class="formBorder w-100">
                     <label for="">Full Name</label>
-                    <input type="text" name="name" class="w-100">
+                    <input type="text" name="name" class="w-100" id="name">
                 </div>
                 <div id="email" class="formBorder w-100">
                     <label for="">Email</label>
-                    <input type="email"  name="email"  class="w-100">
+                    <input type="email"  name="email"  class="w-100" id="email">
                 </div>
                 <div id="username" class="formBorder w-100">
                     <label for="">User Name</label>
-                    <input type="text" name="username" class="w-100">
+                    <input type="text" name="username" class="w-100" id="username">
                 </div>
                 <div id="password" class="formBorder w-100">
                     <label for="">Password</label>
-                    <input type="password" name="password" class="w-100">
+                    <input type="password" name="password" class="w-100" id="password">
                 </div> 
                 <div id="errors" class="">
                 </div>
