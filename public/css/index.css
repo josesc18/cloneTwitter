@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container-page{
+ display: flex;
+}
+.container-page .index-left{
+    background: url('../img/background.jpg') 60% 30% no-repeat;
+    width: 50vw;
+    height: 100vh;
+    flex:4;
+}
+.container-page .index-right{
+    flex:4;
+}
+.index-left .content-img{
+    max-width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20vh;
+}
+.content-img svg{
+    fill: #fff;
+}
+.index-right{
+    padding: 2% 3%;
+}
+.index-right .icon-logo{
+    width: 15%;
+    margin-bottom: 15%;
+}
+.icon-logo svg{
+    fill: #1a91da;
+}
+.index-right h1, .index-right h4{
+    font-weight: 700;
+}.index-right h1{
+    font-size: 60px;
+}.index-right h4{
+    font-size: 30px;
+}
+.links{
+    padding-top: 5%;
+}
+.button{
+    text-decoration: none;
+    border-radius: 15px;
+    padding:3% 30%;
+}
+.register .button{
+    background-color: #3ba5e7;
+    color: #fff;
+    padding:3% 28%;
+    margin-bottom: 5%;
+}
+.login{
+    margin-top: 10%;
+}
+.login .button{
+    border: 1px solid #3ba5e7;
+    background-color: #fff;
+    color: #3ba5e7;
+}
+@media (max-width: 800px){
+    .container-page .index-left{
+        display: none;
+    }
+    .index-right{
+        padding: 10% 5%;
+    }
+    .register .button{
+        padding:3% 38%;
+    }
+    .button{
+        padding:3% 40%;
+    }
+}
+@media (max-width: 400px){
+    .index-right h1{
+        font-size: 40px;
+    }.index-right h4{
+        font-size: 20px;
+    }
+}
