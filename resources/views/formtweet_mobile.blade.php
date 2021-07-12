@@ -14,16 +14,27 @@
     </nav>
 </div>
 <div class="form-tweet">
-    <form>
+    <form id="tweetForm">
         <div id="createTweet" class="container-tweet-input">
             <img src="{{asset('img/default_profile.png')}}" alt="">
-            <textarea name="" id="" rows="auto">What's going on?</textarea>
+            <textarea name="tweet" id="tweet-input" rows="auto">What's going on?</textarea>
         </div>
-        <button class="btnForms">Tweeting</button>
+        <p id="valuesCounter"></p>
+        <button class="btnForms" id="btnTweetign" type="button">Tweeting</button>
     </form>
 </div>
 @endsection
 
 @section('js')
 <script src="{{ asset('js/auth/secure.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/home.js') }}"></script>
+<script type="text/javascript">
+    validateInput("tweet-input","btnTweetign");
+    document.getElementById("btnTweetign").addEventListener("click",function(e){
+        e.defaultPrevented;
+        let form = document.querySelector('#tweetForm');
+        let data = new URLSearchParams(new FormData(form));
+        makeATweet(data);
+    })</script>
 @endsection

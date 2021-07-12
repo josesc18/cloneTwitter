@@ -39,13 +39,13 @@
         </div>
         <a href="/twetmobile" class="btn-tweet"><i class="fas fa-feather-alt"></i></a>
         <div class="form-tweet-home">
-            <form>
+            <form id="tweetForm">
                 <div id="createTweet-home" class="container-tweet-input">
                     <img class="profile-img" src="{{asset('img/default_profile.png')}}" alt="">
-                    <textarea name="" id="tweet-input">What's going on?</textarea>
+                    <textarea name="tweet" id="tweet-input">What's going on?</textarea>
                 </div>
                 <p id="valuesCounter"></p>
-                <button class="btnForms" id="btnTweetign">Tweeting</button>
+                <button class="btnForms" id="btnTweetign" type="button">Tweeting</button>
             </form>
         </div>
         <!--=====================TWEETS======================== -->
@@ -105,6 +105,11 @@
     loadNodo("tweets");
     window.addEventListener('load',onLoad())
     validateInput("tweet-input","btnTweetign");
-
+    document.getElementById("btnTweetign").addEventListener("click",function(e){
+        e.defaultPrevented;
+        let form = document.querySelector('#tweetForm');
+        let data = new URLSearchParams(new FormData(form));
+        makeATweet(data);
+    })
 </script>
 @endsection
